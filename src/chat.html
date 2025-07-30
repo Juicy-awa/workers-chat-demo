@@ -169,6 +169,38 @@ p:last-of-type {
   width: 20em;
 }
 
+/* 深色模式样式 - 跟随系统设置 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+  }
+
+  #name-form, #room-form {
+    background-color: #1a1a1a;
+  }
+
+  #name-input, #room-name, #chat-input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+  }
+
+  #go-private, #go-public {
+    background-color: #444;
+    color: #fff;
+    border-color: #666;
+  }
+
+  #chatlog span.username {
+    color: #8ab4f8;
+  }
+
+  #chatroom::before {
+    color: #666;
+  }
+}
+
 </style>
 
 <!--===================================================================================-->
@@ -177,15 +209,15 @@ p:last-of-type {
   </head>
   <body>
     <form id="name-form" action="/fake-form-action">
-      <input id="name-input" placeholder="your name">
+      <input id="name-input" placeholder="用户名">
       <p>This chat runs entirely on the edge, powered by<br>
         <a href="https://blog.cloudflare.com/introducing-workers-durable-objects" target="_blank">Cloudflare Workers Durable Objects</a></p>
     </form>
     <form id="room-form" action="/fake-form-action">
-      <p>Enter a public room:</p>
+      <p>加入一个公共房间:</p>
       <input id="room-name" placeholder="room name"><button id="go-public">Go &raquo;</button>
-      <p>OR</p>
-      <button id="go-private">Create a Private Room &raquo;</button>
+      <p>或</p>
+      <button id="go-private">创建一个私人房间 &raquo;</button>
     </form>
     <form id="chatroom" action="/fake-form-action">
       <div id="chatlog">
